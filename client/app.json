@@ -4,7 +4,7 @@
     "slug": "stellr",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/nebula.jpg",
+    "icon": "./assets/images/stellr-logo.jpg",
     "scheme": "stellr",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
