@@ -12,6 +12,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts", 
-    "tailwind.config.js", "metro.config.js", "my-expo-app/babel.config.js"  ]
+    "expo-env.d.ts",
+    "tailwind.config.js",
+    "metro.config.js",
+    "my-expo-app/babel.config.js",
+    "nativewind-env.d.ts"
+  ]
 }
