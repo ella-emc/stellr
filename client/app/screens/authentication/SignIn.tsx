@@ -1,17 +1,21 @@
+import React from "react";
 import { SafeAreaView, View, Text, StatusBar, Platform } from "react-native";
 import { Stack } from "expo-router";
 import { ImageBackground } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
+import { useForm } from "react-hook-form";
+import SignInForm from "./components/SignInForm";
 
 export default function SignInScreen() {
+  const { control, handleSubmit, formState: { errors } } = useForm();
+
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
       <SafeAreaView
         className="flex-1 bg-background"
         style={{
-          paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+          paddingVertical: Platform.OS === "android" ? StatusBar.currentHeight : 0,
         }}
       >
         <StatusBar backgroundColor="white" />
@@ -20,8 +24,8 @@ export default function SignInScreen() {
           source={require("../../../assets/images/nebula.jpg")}
           className="flex-1"
           style={{ width: "100%", height: "100%" }}
-          resizeMode="cover"
-          imageStyle={{ opacity: 0.75 }}
+          contentFit="cover"
+          imageStyle={{ opacity: 0.8 }}
         >
           {/* Gradient overlay */}
           <LinearGradient
@@ -34,6 +38,10 @@ export default function SignInScreen() {
           <View className="flex-1 items-center justify-center gap-y-6">
             <Text className="text-white font-dmSans text-sm tracking-[0.2em]">WELCOME TO</Text>
             <Text className="text-white font-sora text-5xl tracking-[0.2em]">Stellr</Text>
+          </View>
+
+          <View className="px-9">
+            <SignInForm />
           </View>
         </ImageBackground>
       </SafeAreaView>
