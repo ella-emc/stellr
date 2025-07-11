@@ -22,9 +22,9 @@ export default function SignInForm() {
         rules={{ required: true }}
         render={({ field: { onChange, value } }) => (
           <View className="flex-col gap-y-2">   
-            <Text className="text-accent font-dmSans">Username</Text>       
+            <Text className="text-text font-dm-sans">Username</Text>       
             <TextInput
-              className="bg-backgroundLight text-white p-4 rounded-xl mb-8 font-dmSans relative"
+              className="bg-backgroundLight text-white p-4 rounded-xl mb-8 font-dm-sans relative"
               placeholder="Your username"
               placeholderTextColor="#FFFFFF40"
               value={value}
@@ -48,9 +48,9 @@ export default function SignInForm() {
         rules={{ required: true }}
         render={({ field: { onChange, value } }) => (
           <View className="flex-col gap-y-2">   
-            <Text className="text-accent font-dmSans">Password</Text>       
+            <Text className="text-text font-dm-sans">Password</Text>       
             <TextInput
-              className="bg-backgroundLight text-white p-4 rounded-xl mb-4 font-dmSans relative"
+              className="bg-backgroundLight text-white p-4 rounded-xl mb-4 font-dm-sans relative"
               placeholder="Your password"
               placeholderTextColor="#FFFFFF40"
               value={value}
@@ -72,7 +72,7 @@ export default function SignInForm() {
       {errors.password && <Text className="text-red-500">Username is required</Text>}
 
       <Pressable 
-        className="flex items-center justify-center bg-accent mt-9 p-4 rounded-xl font-dmSans mt-4"
+        className="flex items-center justify-center bg-accent mt-9 p-4 rounded-xl font-dm-sans mt-4"
         onPress={handleSubmit(onSubmit)}
       >
         <Text className="text-background font-sora">Sign in</Text>
