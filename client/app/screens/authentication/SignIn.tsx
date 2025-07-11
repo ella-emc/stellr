@@ -35,13 +35,13 @@ export default function SignInScreen() {
 
           <View className="flex-1 pb-28 pt-14">
             <View className="flex items-center justify-center gap-y-6 py-16">
-              <Text className="text-white font-dmSans text-sm tracking-[0.2em]">WELCOME TO</Text>
-              <Text className="text-white font-sora text-5xl tracking-[0.2em]">Stellr</Text>
+              <Text className="text-white font-dm-sans text-sm tracking-[0.2em]">WELCOME TO</Text>
+              <Text className="text-white font-sora-bold text-5xl tracking-[0.2em]">Stellr</Text>
             </View>
             <View className="px-12">
               <SignInForm />
-              <Text className="text-text font-dmSans mt-8">
-                Don't have an account yet? <Link href="/screens/authentication/SignUp" className="text-accent">Sign up</Link>
+              <Text className="text-text font-dm-sans mt-8">
+                Don't have an account yet? <Link href="/screens/authentication/SignUp" className="text-accent font-dm-sans-bold">Sign up</Link>
               </Text>
             </View>
           </View>

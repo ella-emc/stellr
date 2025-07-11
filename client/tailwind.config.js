@@ -20,9 +20,9 @@ module.exports = {
       },
       fontFamily: {
         sora: ['Sora'],
-        soraBold: ['Sora Bold'],
-        'sora-semibold': ['Sora SemiBold'],
-        dmSans: ['DM Sans'],
+        'sora-bold': ['Sora Bold'],
+        'sora-semi-bold': ['Sora SemiBold'],
+        'dm-sans': ['DM Sans' ],
         'dm-sans-bold': ['DM Sans Bold'],
         'dm-sans-semi-bold': ['DM Sans SemiBold'],
       }
