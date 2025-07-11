@@ -41,7 +41,7 @@ export default function SignInScreen() {
             <View className="px-12">
               <SignInForm />
               <Text className="text-text font-dm-sans mt-8">
-                Don't have an account yet? <Link href="/screens/authentication/SignUp" className="text-accent font-dm-sans-bold">Sign up</Link>
+                Don't have an account yet? <Link href="/screens/authentication/SignUp" className="text-primary font-dm-sans-bold">Sign up</Link>
               </Text>
             </View>
           </View>

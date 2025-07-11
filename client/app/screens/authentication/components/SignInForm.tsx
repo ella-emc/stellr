@@ -22,15 +22,15 @@ export default function SignInForm() {
         rules={{ required: true }}
         render={({ field: { onChange, value } }) => (
           <View className="flex-col gap-y-2">   
-            <Text className="text-text font-dm-sans">Username</Text>       
+            <Text className="text-text/80 font-dm-sans">Username</Text>       
             <TextInput
-              className="bg-backgroundLight text-white p-4 rounded-xl mb-8 font-dm-sans relative"
+              className="bg-backgroundLight text-white p-4 rounded-xl mb-1 font-dm-sans relative"
               placeholder="Your username"
-              placeholderTextColor="#FFFFFF40"
+              placeholderTextColor="#E5E5E540"
               value={value}
               onChangeText={onChange}
             />
-            <View className="absolute right-4 top-1/2 -translate-y-1/2">
+            <View className="absolute right-4 top-1/2">
               <FontAwesomeIcon 
                 icon={faUserAstronaut} 
                 size={18} 
@@ -40,24 +40,24 @@ export default function SignInForm() {
           </View>
         )}
       />
-      {errors.username && <Text className="text-red-500">Username is required</Text>}
+      {errors.username && <Text className="text-accent font-dm-sans">Invalid username</Text>}
 
       <Controller 
         control={control}
         name="password"
         rules={{ required: true }}
         render={({ field: { onChange, value } }) => (
-          <View className="flex-col gap-y-2">   
-            <Text className="text-text font-dm-sans">Password</Text>       
+          <View className="flex-col gap-y-2 mt-6">   
+            <Text className="text-text/80 font-dm-sans">Password</Text>       
             <TextInput
-              className="bg-backgroundLight text-white p-4 rounded-xl mb-4 font-dm-sans relative"
+              className="bg-backgroundLight text-white p-4 rounded-xl font-dm-sans relative"
               placeholder="Your password"
-              placeholderTextColor="#FFFFFF40"
+              placeholderTextColor="#E5E5E540"
               value={value}
               onChangeText={onChange}
               secureTextEntry={!showPassword}
             />
-            <View className="absolute right-4 top-1/2 -translate-y-1/4">
+            <View className="absolute right-4 top-1/2">
               <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                 <FontAwesomeIcon 
                   icon={showPassword ? faEyeSlash : faEye} 
@@ -69,13 +69,13 @@ export default function SignInForm() {
           </View>
         )}
       />
-      {errors.password && <Text className="text-red-500">Username is required</Text>}
+      {errors.password && <Text className="text-accent">Invalid password</Text>}
 
       <Pressable 
-        className="flex items-center justify-center bg-accent mt-9 p-4 rounded-xl font-dm-sans mt-4"
+        className="flex items-center justify-center bg-primary mt-9 p-4 rounded-xl font-dm-sans mt-4"
         onPress={handleSubmit(onSubmit)}
       >
-        <Text className="text-background font-sora">Sign in</Text>
+        <Text className="text-background font-sora-bold">Sign in</Text>
       </Pressable>
     </View>
   )
