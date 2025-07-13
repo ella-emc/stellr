@@ -25,7 +25,7 @@ export default function CustomInput({
   icon, 
   secureTextEntry = false,
   placeholderTextColor = "#E5E5E540",
-  labelTextColor = "text-text/80",
+  labelTextColor = "text-primary",
   toggleVisibility
 }: CustomInputProps) {
   return (
