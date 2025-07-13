@@ -13,7 +13,7 @@ export default function SignUpForm1() {
   const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
 
   return (
-    <View>
+    <View className="flex-col gap-y-4">
       <CustomInput 
         control={control}
         name="Email"
@@ -39,6 +39,8 @@ export default function SignUpForm1() {
         placeholder="Your password"
         label="Create Password"
         icon={showPassword ? faEyeSlash : faEye}
+        secureTextEntry={!showPassword}
+        toggleVisibility={() => setShowPassword(!showPassword)}
       />
     </View>
   )
