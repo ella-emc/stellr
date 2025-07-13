@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { Controller } from "react-hook-form";
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 
 type CustomInputProps = {
   control: any;
@@ -13,6 +13,7 @@ type CustomInputProps = {
   secureTextEntry?: boolean;
   placeholderTextColor?: string;
   labelTextColor?: string;
+  toggleVisibility?: () => void;  // For password visibiility toggle
 }
 
 export default function CustomInput({ 
@@ -24,7 +25,8 @@ export default function CustomInput({
   icon, 
   secureTextEntry = false,
   placeholderTextColor = "#E5E5E540",
-  labelTextColor = "text-text/80" 
+  labelTextColor = "text-text/80",
+  toggleVisibility
 }: CustomInputProps) {
   return (
     <>
@@ -45,11 +47,21 @@ export default function CustomInput({
             />
             {icon && (
               <View className="absolute right-4 top-1/2">
-                <FontAwesomeIcon
-                  icon={icon}
-                  size={18}
-                  style={{ color: "#FFFFFF", opacity: 0.5 }}
-                />
+                {toggleVisibility ? (
+                  <TouchableOpacity onPress={toggleVisibility}>
+                    <FontAwesomeIcon
+                      icon={icon}
+                      size={18}
+                      style={{ color: "#FFFFFF", opacity: 0.5 }}
+                    />
+                  </TouchableOpacity>
+                ) : (
+                  <FontAwesomeIcon
+                    icon={icon}
+                    size={18}
+                    style={{ color: "#FFFFFF", opacity: 0.5 }}
+                  />
+                )}
               </View>
             )}
             {fieldState.error && (
