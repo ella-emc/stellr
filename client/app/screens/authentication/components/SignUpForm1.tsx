@@ -1,11 +1,18 @@
 import CustomInput from "@/components/forms/CustomInput";
 import { faEnvelope, faEye, faEyeSlash, faUserAstronaut } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import React, { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import { Pressable, Text, TextInput, View } from "react-native";
+import { useForm } from "react-hook-form";
+import { Pressable, Text, View } from "react-native";
 
-export default function SignUpForm1() {
+type SignUpForm1Props = {
+  step: number;
+  setStep: (step: number) => void;
+}
+
+export default function SignUpForm1({
+  step,
+  setStep
+}: SignUpForm1Props) {
   const { control, handleSubmit, formState: { errors }, getValues } = useForm();
 
   // State to handle password visibility
@@ -60,10 +67,10 @@ export default function SignUpForm1() {
       />
 
       <Pressable 
-        className="flex items-center justify-center bg-primary mt-9 p-4 rounded-xl font-dm-sans mt-4"
-        onPress={handleSubmit(onSubmit)}
+        className="flex w-1/3 self-end items-center justify-center border-2 border-accent p-4 rounded-xl font-dm-sans mt-4"
+        onPress={() => setStep(step + 1)}
       >
-        <Text className="text-background font-sora-bold">Next</Text>
+        <Text className="text-accent font-sora-bold">Next</Text>
       </Pressable>
     </View>
   )
