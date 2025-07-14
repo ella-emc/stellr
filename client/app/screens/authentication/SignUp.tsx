@@ -23,7 +23,7 @@ export default function SignUpScreen() {
           </View>
           <View>
             <Text className="text-text font-dm-sans py-10 tracking-widest">{step} of 3</Text>
-            {step === 1 && <SignUpForm1 />}
+            {step === 1 && <SignUpForm1  step={step} setStep={setStep} />}
             {/* Additional steps to be added */}
           </View>
         </View>
