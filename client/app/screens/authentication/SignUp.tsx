@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import React, { useState } from "react";
 import { View, Text, Platform, SafeAreaView, StatusBar } from "react-native";
 import SignUpForm1 from "./components/SignUpForm1";
+import SignUpForm2 from "./components/SignUpForm2";
 
 export default function SignUpScreen() {
   const [step, setStep] = useState<number>(1);
@@ -24,6 +25,7 @@ export default function SignUpScreen() {
           <View>
             <Text className="text-text font-dm-sans py-10 tracking-widest">{step} of 3</Text>
             {step === 1 && <SignUpForm1  step={step} setStep={setStep} />}
+            {step === 2 && <SignUpForm2 step={step} setStep={setStep} />}
             {/* Additional steps to be added */}
           </View>
         </View>
