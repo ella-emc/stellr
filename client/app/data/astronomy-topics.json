@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "label": "black-holes",
+    "name": "Black Holes"
+  },
+  {
+    "id": 2,
+    "label": "galaxies",
+    "name": "Galaxies"
+  },
+  {
+    "id": 3,
+    "label": "planets",
+    "name": "Planets"
+  },
+  {
+    "id": 4,
+    "label": "stars",
+    "name": "Stars"
+  },
+  {
+    "id": 5,
+    "label": "nebulae",
+    "name": "Nebulae"
+  },
+  {
+    "id": 6,
+    "label": "comets",
+    "name": "Comets"
+  },
+  {
+    "id": 7,
+    "label": "asteroids",
+    "name": "Asteroids"
+  },
+  {
+    "id": 8,
+    "label": "cosmic-rays",
+    "name": "Cosmic Rays"
+  },
+  {
+    "id": 9,
+    "label": "dark-matter",
+    "name": "Dark Matter"
+  },
+  {
+    "id": 10,
+    "label": "dark-energy",
+    "name": "Dark Energy"
+  }
+]
