@@ -16,6 +16,9 @@ export default function SignUpForm1({
 }: SignUpForm3Props) {
   const { control, handleSubmit, formState: { errors }, getValues } = useForm();
 
+  // State to handle topic selection
+  const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
+
   const onSubmit = (data: any) => {
     console.log("Form submitted with data:", data);
     // Submission logic goes here
@@ -37,7 +40,7 @@ export default function SignUpForm1({
               className="bg-backgroundLight py-3 px-5 rounded-3xl"
               onPress={() => handleTopicSelection(topic.label)}
             >
-              <Text className="text-text font-dm-sans">{topic.label}</Text>
+              <Text className="text-text font-dm-sans">{topic.name.toLowerCase()}</Text>
             </Pressable>
           ))
         }
