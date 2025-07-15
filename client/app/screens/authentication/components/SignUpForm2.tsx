@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Pressable, Text, View } from "react-native";
 
-type SignUpForm1Props = {
+type SignUpForm2Props = {
   step: number;
   setStep: (step: number) => void;
 }
@@ -12,7 +12,7 @@ type SignUpForm1Props = {
 export default function SignUpForm2({
   step,
   setStep
-}: SignUpForm1Props) {
+}: SignUpForm2Props) {
   const { control, handleSubmit, formState: { errors }, getValues } = useForm();
 
   // State to handle password visibility
