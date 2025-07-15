@@ -15,10 +15,6 @@ export default function SignUpForm2({
 }: SignUpForm2Props) {
   const { control, handleSubmit, formState: { errors }, getValues } = useForm();
 
-  // State to handle password visibility
-  const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
-
   const onSubmit = (data: any) => {
     console.log("Form submitted with data:", data);
     // Submission logic goes here
