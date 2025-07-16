@@ -18,6 +18,9 @@ export default function SignUpForm1({
 
   // State to handle topic selection
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
+  
+  // State to display modal warning when more than 5 topics are selected
+  const [displayWarning, setDisplayWarning] = useState<boolean>(false);
 
   const onSubmit = (data: any) => {
     console.log("Form submitted with data:", data);
@@ -25,7 +28,19 @@ export default function SignUpForm1({
   };
 
   const handleTopicSelection = (topic: string) => {
-    console.log(`Selected topic: ${topic}`);
+    if (selectedTopics.includes(topic)) {
+      // If already selected, remove it
+      setSelectedTopics(selectedTopics.filter(t => t !== topic));
+    } else {
+      // If not selected, add it
+      if (selectedTopics.length < 5) {
+        setSelectedTopics([...selectedTopics, topic]);
+        console.log("Selected topics:", [...selectedTopics, topic]);
+      } else {
+        console.log("Maximum of 5 interests only.");
+        setDisplayWarning(true);
+      }
+    }
   }
 
   return (
@@ -37,10 +52,13 @@ export default function SignUpForm1({
           topics.map((topic, index) => (
             <Pressable
               key={index}
-              className="bg-backgroundLight py-3 px-5 rounded-3xl"
+              className={`
+                ${selectedTopics.includes(topic.label) ? "bg-primary" : "bg-backgroundLight"}
+                py-3 px-5 rounded-3xl
+              `}
               onPress={() => handleTopicSelection(topic.label)}
             >
-              <Text className="text-text font-dm-sans">{topic.name.toLowerCase()}</Text>
+              <Text className={`${selectedTopics.includes(topic.label) ? "text-background" : "text-text"} font-dm-sans`}>{topic.name.toLowerCase()}</Text>
             </Pressable>
           ))
         }
