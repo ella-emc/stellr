@@ -24,7 +24,7 @@ module.exports = {
         'sora-semi-bold': ['Sora SemiBold'],
         'dm-sans': ['DM Sans' ],
         'dm-sans-bold': ['DM Sans Bold'],
-        'dm-sans-semi-bold': ['DM Sans SemiBold'],
+        'dm-sans-semibold': ['DM Sans SemiBold'],
       }
     },
   },
