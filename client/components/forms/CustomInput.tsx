@@ -35,7 +35,7 @@ export default function CustomInput({
         name={name}
         rules={rules}
         render={({ field: { onChange, value }, fieldState }) => (
-          <View className="flex-col gap-y-2">
+          <View style={{ display: "flex", flexDirection: "column", rowGap: 8 }}>
             <Text className={`font-dm-sans ${labelTextColor}`}>{label}</Text>
             <View className="relative flex-row items-center">
               <TextInput
