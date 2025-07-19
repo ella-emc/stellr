@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { Controller } from "react-hook-form";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
 type CustomInputProps = {
   control: any;
@@ -47,7 +47,7 @@ export default function CustomInput({
                 secureTextEntry={secureTextEntry}
               />
               {icon && (
-                <View className="absolute right-4"> 
+                <View style={{ position: "absolute", right: 16 }}> 
                   {toggleVisibility ? (
                     <TouchableOpacity onPress={toggleVisibility}>
                       <FontAwesomeIcon
