@@ -69,7 +69,7 @@ export default function SignInForm() {
           </View>
         )}
       />
-      {errors.password && <Text className="text-accent">Invalid password</Text>}
+      {errors.password && <Text className="font-dm-sans text-accent">Invalid password</Text>}
 
       <Pressable 
         className="flex items-center justify-center bg-primary mt-9 p-4 rounded-xl font-dm-sans mt-4"
