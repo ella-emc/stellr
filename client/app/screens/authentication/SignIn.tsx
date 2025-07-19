@@ -40,7 +40,10 @@ export default function SignInScreen() {
             </View>
             <View className="px-12">
               <SignInForm />
-              <Text className="text-text font-dm-sans mt-8">
+              <Text className="text-primary font-dm-sans mt-8">
+                <Link href="/screens/authentication/ForgetPassword">Forgot your password?</Link>
+              </Text>
+              <Text className="text-text font-dm-sans mt-3">
                 Don't have an account yet? <Link href="/screens/authentication/SignUp" className="text-primary font-dm-sans-bold">Sign up</Link>
               </Text>
             </View>
