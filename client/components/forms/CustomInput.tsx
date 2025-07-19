@@ -14,6 +14,7 @@ type CustomInputProps = {
   placeholderTextColor?: string;
   labelTextColor?: string;
   toggleVisibility?: () => void; // For password visibility toggle
+  errorMessage?: string;
 };
 
 export default function CustomInput({
@@ -27,6 +28,7 @@ export default function CustomInput({
   placeholderTextColor = "#E5E5E540",
   labelTextColor = "text-primary",
   toggleVisibility,
+  errorMessage
 }: CustomInputProps) {
   return (
     <>
