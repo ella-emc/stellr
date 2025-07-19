@@ -13,20 +13,20 @@ type CustomInputProps = {
   secureTextEntry?: boolean;
   placeholderTextColor?: string;
   labelTextColor?: string;
-  toggleVisibility?: () => void;  // For password visibiility toggle
-}
+  toggleVisibility?: () => void; // For password visibility toggle
+};
 
-export default function CustomInput({ 
-  control, 
-  name, 
-  rules, 
-  placeholder, 
+export default function CustomInput({
+  control,
+  name,
+  rules,
+  placeholder,
   label,
-  icon, 
+  icon,
   secureTextEntry = false,
   placeholderTextColor = "#E5E5E540",
   labelTextColor = "text-primary",
-  toggleVisibility
+  toggleVisibility,
 }: CustomInputProps) {
   return (
     <>
@@ -37,35 +37,37 @@ export default function CustomInput({
         render={({ field: { onChange, value }, fieldState }) => (
           <View className="flex-col gap-y-2">
             <Text className={`font-dm-sans ${labelTextColor}`}>{label}</Text>
-            <TextInput
-              className="bg-backgroundLight text-white p-4 rounded-xl mb-1 font-dm-sans relative"
-              placeholder={placeholder}
-              placeholderTextColor={placeholderTextColor}
-              value={value}
-              onChangeText={onChange}
-              secureTextEntry={secureTextEntry}
-            />
-            {icon && (
-              <View className="absolute right-4 top-1/2">
-                {toggleVisibility ? (
-                  <TouchableOpacity onPress={toggleVisibility}>
+            <View className="relative flex-row items-center">
+              <TextInput
+                className="bg-backgroundLight text-white p-4 rounded-xl font-dm-sans flex-1 pr-12"
+                placeholder={placeholder}
+                placeholderTextColor={placeholderTextColor}
+                value={value}
+                onChangeText={onChange}
+                secureTextEntry={secureTextEntry}
+              />
+              {icon && (
+                <View className="absolute right-4"> 
+                  {toggleVisibility ? (
+                    <TouchableOpacity onPress={toggleVisibility}>
+                      <FontAwesomeIcon
+                        icon={icon}
+                        size={18}
+                        style={{ color: "#FFFFFF", opacity: 0.5 }}
+                      />
+                    </TouchableOpacity>
+                  ) : (
                     <FontAwesomeIcon
                       icon={icon}
                       size={18}
                       style={{ color: "#FFFFFF", opacity: 0.5 }}
                     />
-                  </TouchableOpacity>
-                ) : (
-                  <FontAwesomeIcon
-                    icon={icon}
-                    size={18}
-                    style={{ color: "#FFFFFF", opacity: 0.5 }}
-                  />
-                )}
-              </View>
-            )}
+                  )}
+                </View>
+              )}
+            </View>
             {fieldState.error && (
-              <Text className="text-accent font-dm-sans mt-1">
+              <Text className="text-accent font-dm-sans">
                 {fieldState.error.message || "This field is required."}
               </Text>
             )}
