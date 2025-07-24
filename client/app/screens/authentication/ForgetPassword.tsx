@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, View, Text, StatusBar, Platform, Pressable } from "react-native";
+import { SafeAreaView, View, Text, StatusBar, Platform, Pressable, ActivityIndicator } from "react-native";
 import { Stack, router } from "expo-router";
 import CustomInput from "@/components/forms/CustomInput";
 import { useForm } from "react-hook-form";
@@ -12,8 +12,10 @@ export default function ForgetPasswordScreen() {
   type FormData = { email: string };
   const { control, handleSubmit, formState: { errors }, getValues } = useForm<FormData>();
   const [invalidEmailMessage, setInvalidEmailMessage] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   
   const handleSendPasswortResetEmail = (data: FormData) => {
+    setLoading(true);
     const auth = getAuth(app);
     sendPasswordResetEmail(auth, data.email)
       .then(() => {
@@ -27,6 +29,7 @@ export default function ForgetPasswordScreen() {
       })
       .finally(() => {
         console.log("Process done.");
+        setLoading(false);
       });
   }
   
@@ -70,9 +73,14 @@ export default function ForgetPasswordScreen() {
 
             <Pressable 
               onPress={handleSubmit(handleSendPasswortResetEmail)}
-              className="bg-primary rounded-xl p-4 mt-6 items-center"
+              className="flex items-center bg-primary rounded-xl p-4 mt-6 items-center"
+              disabled={loading}
             >
-              <Text className="font-sora-bold">Send instructions</Text>
+              {loading ? (
+                <ActivityIndicator size={"small"} color="#0F0F1E" animating={loading} />
+              ) : (
+                <Text className="font-sora-bold">Send instructions</Text>
+              )}
             </Pressable>
           </View>
         </View>
