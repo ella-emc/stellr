@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, View, Text, StatusBar, Platform, Pressable } from "react-native";
 import { Stack, router } from "expo-router";
 import CustomInput from "@/components/forms/CustomInput";
 import { useForm } from "react-hook-form";
-import { faArrowLeft, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faEnvelope, faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { getAuth, sendPasswordResetEmail, fetchSignInMethodsForEmail } from "firebase/auth";
+import app from "@/firebaseConfig";
 
 export default function ForgetPasswordScreen() {
-  const { control, handleSubmit, formState: { errors }, getValues } = useForm();
+  type FormData = { email: string };
+  const { control, handleSubmit, formState: { errors }, getValues } = useForm<FormData>();
+  const [invalidEmailMessage, setInvalidEmailMessage] = useState<boolean>(false);
+  
+  const handleSendPasswortResetEmail = (data: FormData) => {
+    const auth = getAuth(app);
+    sendPasswordResetEmail(auth, data.email)
+      .then(() => {
+        console.log("Password reset email sent.");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        console.error(errorMessage);
+      })
+      .finally(() => {
+        console.log("Process done.");
+      });
+  }
   
   return (
     <>
@@ -40,8 +61,15 @@ export default function ForgetPasswordScreen() {
               icon={faEnvelope}
             />
 
+            {invalidEmailMessage && (
+              <View className="flex flex-row gap-x-2 items-center mt-2">
+                <FontAwesomeIcon icon={faExclamationTriangle} size={16} color="#F25287" />
+                <Text className="font-dm-sans text-accent">This email does not exist</Text>
+              </View>
+            )}
+
             <Pressable 
-              onPress={() => console.log("Send instructions")}
+              onPress={handleSubmit(handleSendPasswortResetEmail)}
               className="bg-primary rounded-xl p-4 mt-6 items-center"
             >
               <Text className="font-sora-bold">Send instructions</Text>
